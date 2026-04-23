@@ -1,0 +1,56 @@
+/* Digital World Corporate — Design Tokens */
+@import url('https://api.fontshare.com/v2/css?f[]=satoshi@400,500,700,900&f[]=clash-display@500,600,700&f[]=jetbrains-mono@400,500&display=swap');
+
+:root {
+  /* Brand */
+  --brand: #f7941d;
+  --brand-dark: #d97906;
+  --brand-light: #fdb64a;
+  --brand-soft: #fef3e3;
+
+  /* Ink */
+  --ink: #0a0a0a;
+  --ink-2: #1a1a1a;
+  --ink-3: #2c2c2c;
+  --muted: #6b6b6b;
+  --muted-2: #9a9a9a;
+
+  /* Paper */
+  --paper: #ffffff;
+  --paper-2: #fafaf7;
+  --paper-3: #f3f1ec;
+  --border: #e6e3dd;
+  --border-2: #d0ccc4;
+
+  /* Type */
+  --font-sans: 'Satoshi', ui-sans-serif, system-ui, sans-serif;
+  --font-display: 'Clash Display', 'Satoshi', sans-serif;
+  --font-mono: 'JetBrains Mono', ui-monospace, monospace;
+
+  /* Radii */
+  --r-sm: 6px;
+  --r-md: 10px;
+  --r-lg: 18px;
+  --r-xl: 28px;
+
+  /* Shadows */
+  --shadow-sm: 0 1px 2px rgba(10,10,10,.04), 0 1px 1px rgba(10,10,10,.03);
+  --shadow-md: 0 4px 16px rgba(10,10,10,.06), 0 2px 4px rgba(10,10,10,.04);
+  --shadow-lg: 0 20px 60px rgba(10,10,10,.12), 0 6px 18px rgba(10,10,10,.06);
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+html, body { margin: 0; padding: 0; }
+body {
+  font-family: var(--font-sans);
+  color: var(--ink);
+  background: var(--paper);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  line-height: 1.5;
+}
+img { max-width: 100%; display: block; }
+a { color: inherit; text-decoration: none; }
+button { font: inherit; cursor: pointer; border: 0; background: none; }
+h1,h2,h3,h4,h5 { margin: 0; font-family: var(--font-display); font-weight: 600; letter-spacing: -0.02em; line-height: 1.04; }
+p { margin: 0; }

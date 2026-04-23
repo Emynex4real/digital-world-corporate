@@ -1,0 +1,62 @@
+/* ═══════════════════════════════════════════════════════════════
+   FONTS
+   ───────────────────────────────────────────────────────────────
+   To swap any font:
+     1. Replace the font name in the @import URL (or swap the URL entirely
+        for Google Fonts, Bunny Fonts, a local file, etc.)
+     2. Update the matching --font-* variable value below.
+   The Tailwind classes (font-sans, font-display, font-mono) never change.
+   ═══════════════════════════════════════════════════════════════ */
+@import url('https://api.fontshare.com/v2/css?f[]=satoshi@400,500,700,900&f[]=clash-display@500,600,700&f[]=jetbrains-mono@400,500&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --font-sans:    'Satoshi', ui-sans-serif, system-ui, sans-serif;
+  --font-display: 'Clash Display', 'Satoshi', sans-serif;
+  --font-mono:    'JetBrains Mono', ui-monospace, monospace;
+}
+
+@layer base {
+  *, *::before, *::after { box-sizing: border-box; }
+
+  body {
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+    line-height: 1.5;
+    @apply text-ink bg-paper;
+  }
+
+  img  { @apply max-w-full block; }
+  a    { text-decoration: none; color: inherit; }
+  button { cursor: pointer; border: 0; background: none; font: inherit; }
+
+  h1, h2, h3, h4, h5 {
+    margin: 0;
+    font-family: var(--font-display);
+    font-weight: 600;
+    letter-spacing: -0.02em;
+    line-height: 1.04;
+  }
+
+  p { margin: 0; }
+}
+
+/* ── Marquee animation ──────────────────────────────────────── */
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+
+@layer utilities {
+  .animate-marquee {
+    animation: marquee 32s linear infinite;
+    will-change: transform;
+  }
+  .animate-marquee:hover {
+    animation-play-state: paused;
+  }
+}
