@@ -29,7 +29,7 @@ export default function GetProposal() {
   }
 
   return (
-    <div className="bg-paper text-ink">
+    <div className="bg-paper text-ink overflow-x-hidden">
       <Nav variant="dark" />
       <ProposalHero />
       <ProposalForm
@@ -55,38 +55,30 @@ function ProposalHero() {
       <div className="absolute top-0 left-0 w-[600px] h-[600px] pointer-events-none"
         style={{ background: 'radial-gradient(circle, rgba(247,148,29,0.11) 0%, transparent 65%)' }}
       />
-      <div className="relative z-10 max-w-container mx-auto px-10 pt-[80px] pb-[72px]">
-        <div className="flex gap-3.5 font-mono text-[11px] tracking-[0.14em] uppercase text-white/30">
+      <div className="relative z-10 max-w-container mx-auto px-6 lg:px-10 pt-[80px] pb-12 lg:pb-[72px]">
+        <div className="flex gap-2 font-mono text-[11px] tracking-[0.12em] uppercase text-white/30 flex-wrap">
           <span>Home</span><span>/</span><span className="text-brand">Get a Proposal</span>
         </div>
-        <motion.div
-          variants={stagger}
-          initial="hidden"
-          animate="show"
-          className="grid grid-cols-[1.25fr_1fr] gap-20 items-end mt-12"
+        <motion.div variants={stagger} initial="hidden" animate="show"
+          className="grid lg:grid-cols-[1.25fr_1fr] gap-10 lg:gap-20 items-end mt-10 lg:mt-12"
         >
           <motion.div variants={slideLeft}>
             <Eyebrow color="#f7941d">Request a proposal</Eyebrow>
-            <h1
-              className="mt-5 font-semibold tracking-[-0.035em] leading-[1.02] text-white"
-              style={{ fontSize: 'clamp(48px, 5.8vw, 84px)' }}
-            >
+            <h1 className="mt-5 font-semibold tracking-[-0.035em] leading-[1.02] text-white"
+              style={{ fontSize: 'clamp(36px, 5.8vw, 84px)' }}>
               Tell us what you<br />
               need. We'll design<br />
               the <em className="not-italic text-brand">solution</em>.
             </h1>
           </motion.div>
-          <motion.p variants={slideRight} className="text-[17px] leading-[1.65] text-white/55">
+          <motion.p variants={slideRight} className="text-[15px] lg:text-[17px] leading-[1.65] text-white/55">
             Share your objectives, constraints, and context — and we'll respond with a tailored
             proposal within 3 business days. No templates, no guesswork.
           </motion.p>
         </motion.div>
 
-        <motion.div
-          variants={staggerFast}
-          initial="hidden"
-          animate="show"
-          className="mt-14 pt-6 border-t border-white/10 grid grid-cols-3 gap-10"
+        <motion.div variants={staggerFast} initial="hidden" animate="show"
+          className="mt-10 lg:mt-14 pt-6 border-t border-white/10 grid grid-cols-3 gap-4 lg:gap-10"
         >
           {[
             ['3 days',   'Proposal turnaround'],
@@ -94,8 +86,8 @@ function ProposalHero() {
             ['Free',     'Zero cost to request'],
           ].map(([k, v]) => (
             <motion.div key={v} variants={fadeUp}>
-              <div className="font-display text-[40px] font-semibold tracking-[-0.02em] text-white leading-none">{k}</div>
-              <div className="mt-2 text-[13px] text-white/45">{v}</div>
+              <div className="font-display text-[28px] lg:text-[40px] font-semibold tracking-[-0.02em] text-white leading-none">{k}</div>
+              <div className="mt-2 text-[11px] lg:text-[13px] text-white/45">{v}</div>
             </motion.div>
           ))}
         </motion.div>
@@ -123,7 +115,7 @@ function ProposalForm({
 }: FormProps) {
   if (submitted) {
     return (
-      <section className="px-10 py-24 bg-paper">
+      <section className="px-6 lg:px-10 py-16 lg:py-24 bg-paper">
         <motion.div variants={scaleIn} initial="hidden" animate="show" className="max-w-[640px] mx-auto text-center">
           <div className="w-16 h-16 rounded-full bg-brand/10 flex items-center justify-center mx-auto mb-6">
             <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#f7941d" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
@@ -146,15 +138,11 @@ function ProposalForm({
   }
 
   return (
-    <section className="px-10 py-20 bg-paper">
+    <section className="px-6 lg:px-10 py-12 lg:py-20 bg-paper">
       <div className="max-w-container mx-auto">
-        <motion.form
-          variants={stagger}
-          initial="hidden"
-          whileInView="show"
-          viewport={viewport}
+        <motion.form variants={stagger} initial="hidden" whileInView="show" viewport={viewport}
           onSubmit={onSubmit}
-          className="grid grid-cols-[1fr_1.15fr] gap-16 items-start"
+          className="grid lg:grid-cols-[1fr_1.15fr] gap-8 lg:gap-16 items-start"
         >
           {/* Left column */}
           <div className="grid gap-8">
@@ -178,7 +166,7 @@ function ProposalForm({
               <label className="block font-mono text-[11px] tracking-[0.12em] uppercase text-muted mb-3">
                 Approximate budget range
               </label>
-              <div className="grid grid-cols-3 gap-2 mb-7">
+              <div className="grid grid-cols-2 lg:grid-cols-3 gap-2 mb-7">
                 {BUDGETS.map(b => (
                   <button key={b} type="button" onClick={() => setSelectedBudget(selectedBudget === b ? null : b)}
                     className="px-3 py-2.5 rounded-lg border text-[13px] transition-all duration-150 text-center"
@@ -327,7 +315,7 @@ function ProposalProcess() {
       />
       <div className="relative z-10 max-w-container mx-auto">
         <motion.div variants={stagger} initial="hidden" whileInView="show" viewport={viewport}
-          className="grid grid-cols-[180px_1fr] gap-16 mb-14"
+          className="grid lg:grid-cols-[180px_1fr] gap-6 lg:gap-16 mb-10 lg:mb-14"
         >
           <motion.div variants={slideLeft}>
             <div className="font-mono text-[11px] tracking-[0.14em] uppercase text-brand mb-2">§ Process</div>
@@ -342,7 +330,7 @@ function ProposalProcess() {
         </motion.div>
 
         <motion.div variants={staggerFast} initial="hidden" whileInView="show" viewport={viewport}
-          className="grid grid-cols-4 gap-6 relative"
+          className="grid grid-cols-2 lg:grid-cols-4 gap-6 relative"
         >
           <div className="absolute top-5 left-[6%] right-[6%] h-px bg-white/10" />
           {[

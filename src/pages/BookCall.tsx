@@ -30,7 +30,7 @@ export default function BookCall() {
   }
 
   return (
-    <div className="bg-paper text-ink">
+    <div className="bg-paper text-ink overflow-x-hidden">
       <Nav variant="dark" />
       <BookHero />
       <BookForm
@@ -54,48 +54,38 @@ function BookHero() {
       <div className="absolute top-0 right-0 w-[600px] h-[600px] pointer-events-none"
         style={{ background: 'radial-gradient(circle, rgba(247,148,29,0.13) 0%, transparent 65%)' }}
       />
-      <div className="relative z-10 max-w-container mx-auto px-10 pt-[80px] pb-[72px]">
-        <div className="flex gap-3.5 font-mono text-[11px] tracking-[0.14em] uppercase text-white/30">
+      <div className="relative z-10 max-w-container mx-auto px-6 lg:px-10 pt-[80px] pb-12 lg:pb-[72px]">
+        <div className="flex gap-2 font-mono text-[11px] tracking-[0.12em] uppercase text-white/30 flex-wrap">
           <span>Home</span><span>/</span><span className="text-brand">Book a Call</span>
         </div>
-        <motion.div
-          variants={stagger}
-          initial="hidden"
-          animate="show"
-          className="grid grid-cols-[1.25fr_1fr] gap-20 items-end mt-12"
+        <motion.div variants={stagger} initial="hidden" animate="show"
+          className="grid lg:grid-cols-[1.25fr_1fr] gap-10 lg:gap-20 items-end mt-10 lg:mt-12"
         >
           <motion.div variants={slideLeft}>
             <Eyebrow color="#f7941d">Schedule a call</Eyebrow>
-            <h1
-              className="mt-5 font-semibold tracking-[-0.035em] leading-[1.02] text-white"
-              style={{ fontSize: 'clamp(48px, 5.8vw, 84px)' }}
-            >
+            <h1 className="mt-5 font-semibold tracking-[-0.035em] leading-[1.02] text-white"
+              style={{ fontSize: 'clamp(36px, 5.8vw, 84px)' }}>
               Let's talk about<br />
               your <em className="not-italic text-brand">organization</em>.
             </h1>
           </motion.div>
-          <motion.p variants={slideRight} className="text-[17px] leading-[1.65] text-white/55">
+          <motion.p variants={slideRight} className="text-[15px] lg:text-[17px] leading-[1.65] text-white/55">
             A focused 30-minute call to understand your goals and explore how Digital World
             Corporate can build real capability across your organization.
           </motion.p>
         </motion.div>
 
-        <motion.div
-          variants={staggerFast}
-          initial="hidden"
-          animate="show"
-          className="mt-14 pt-6 border-t border-white/10 grid grid-cols-3 gap-10"
+        <motion.div variants={staggerFast} initial="hidden" animate="show"
+          className="mt-10 lg:mt-14 pt-6 border-t border-white/10 grid grid-cols-3 gap-4 lg:gap-10"
         >
           {[
-            ['30 min', 'Focused discovery call'],
+            ['30 min', 'Discovery call'],
             ['3 days', 'Proposal turnaround'],
-            ['No cost', 'Completely free to start'],
+            ['Free', 'No cost to start'],
           ].map(([k, v]) => (
             <motion.div key={v} variants={fadeUp}>
-              <div className="font-display text-[40px] font-semibold tracking-[-0.02em] text-white leading-none">
-                {k}
-              </div>
-              <div className="mt-2 text-[13px] text-white/45">{v}</div>
+              <div className="font-display text-[28px] lg:text-[40px] font-semibold tracking-[-0.02em] text-white leading-none">{k}</div>
+              <div className="mt-2 text-[11px] lg:text-[13px] text-white/45">{v}</div>
             </motion.div>
           ))}
         </motion.div>
@@ -116,7 +106,7 @@ interface FormProps {
 function BookForm({ selectedTime, setSelectedTime, selectedTopic, setSelectedTopic, submitted, onSubmit }: FormProps) {
   if (submitted) {
     return (
-      <section className="px-10 py-24 bg-paper">
+      <section className="px-6 lg:px-10 py-16 lg:py-24 bg-paper">
         <motion.div
           variants={scaleIn}
           initial="hidden"
@@ -144,8 +134,8 @@ function BookForm({ selectedTime, setSelectedTime, selectedTopic, setSelectedTop
   }
 
   return (
-    <section className="px-10 py-20 bg-paper">
-      <div className="max-w-container mx-auto grid grid-cols-[1fr_1.1fr] gap-16 items-start">
+    <section className="px-6 lg:px-10 py-12 lg:py-20 bg-paper">
+      <div className="max-w-container mx-auto grid lg:grid-cols-[1fr_1.1fr] gap-10 lg:gap-16 items-start">
 
         {/* Left — what to expect */}
         <motion.div variants={stagger} initial="hidden" whileInView="show" viewport={viewport}>
@@ -201,7 +191,7 @@ function BookForm({ selectedTime, setSelectedTime, selectedTopic, setSelectedTop
           whileInView="show"
           viewport={viewport}
           onSubmit={onSubmit}
-          className="rounded-r-xl border border-line bg-white p-10 shadow-sm"
+          className="rounded-r-xl border border-line bg-white p-6 lg:p-10 shadow-sm"
         >
           <div className="font-mono text-[11px] tracking-[0.14em] uppercase text-muted mb-8">
             Your details
@@ -251,7 +241,7 @@ function BookForm({ selectedTime, setSelectedTime, selectedTopic, setSelectedTop
             <label className="block font-mono text-[11px] tracking-[0.12em] uppercase text-muted mb-3">
               Preferred call time (WAT)
             </label>
-            <div className="grid grid-cols-4 gap-2">
+            <div className="grid grid-cols-2 sm:grid-cols-4 gap-2">
               {TIMES.map(t => (
                 <button
                   key={t}
@@ -325,17 +315,13 @@ function Field({ label, name, type = 'text', required, placeholder }: FieldProps
 
 function BookReassurance() {
   return (
-    <section className="relative px-10 py-20 bg-ink overflow-hidden">
+    <section className="relative px-6 lg:px-10 py-16 lg:py-20 bg-ink overflow-hidden">
       <GrainOverlay opacity={0.04} />
       <div className="absolute bottom-0 right-0 w-[500px] h-[500px] pointer-events-none"
         style={{ background: 'radial-gradient(circle, rgba(247,148,29,0.09) 0%, transparent 70%)' }}
       />
-      <motion.div
-        variants={staggerFast}
-        initial="hidden"
-        whileInView="show"
-        viewport={viewport}
-        className="relative z-10 max-w-container mx-auto grid grid-cols-3 gap-10"
+      <motion.div variants={staggerFast} initial="hidden" whileInView="show" viewport={viewport}
+        className="relative z-10 max-w-container mx-auto grid grid-cols-1 lg:grid-cols-3 gap-8 lg:gap-10"
       >
         {[
           ['Confidential', 'Everything discussed on the call stays between us. No data is shared or sold.'],
