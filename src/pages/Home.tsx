@@ -4,7 +4,6 @@ import { motion, AnimatePresence } from 'framer-motion'
 import { Nav } from '../components/layout/Nav'
 import { Footer } from '../components/layout/Footer'
 import { Btn } from '../components/ui/Btn'
-import { Arrow } from '../components/ui/Arrow'
 import { GrainOverlay } from '../components/ui/GrainOverlay'
 import { EXPERTISE, CASE_STUDIES, TEAM } from '../data'
 import { fadeUp, slideLeft, slideRight, scaleIn, stagger, viewport } from '../lib/motion'
@@ -21,7 +20,7 @@ const IMG = {
 
 export default function Home() {
   return (
-    <div className="bg-[#f9f9f9] text-[#0a0a0a] min-h-screen font-sans selection:bg-[#f7941d] selection:text-white">
+    <div className="bg-[#f9f9f9] text-[#0a0a0a] min-h-screen font-sans selection:bg-[#f7941d] selection:text-white overflow-x-hidden">
       <Nav variant="dark" />
       <BexonHero />
       <BexonLogos />
@@ -49,28 +48,28 @@ function BexonHero() {
       <div className="relative z-10 flex-1 grid lg:grid-cols-[1.15fr_1fr]">
 
         {/* Left — content */}
-        <div className="flex flex-col justify-between px-10 pt-[100px] pb-14 lg:px-16 lg:pt-[108px]">
+        <div className="flex flex-col justify-between px-6 pt-[100px] pb-10 lg:px-16 lg:pt-[108px] lg:pb-14">
 
           {/* Breadcrumb */}
-          <div className="font-mono text-[11px] tracking-[0.14em] uppercase text-white/25 flex gap-3 items-center">
-            <span>Digital World Corporate</span>
+          <div className="font-mono text-[11px] tracking-[0.1em] uppercase text-white/25 flex flex-wrap gap-2 items-center">
+            <span>DW Corporate</span>
             <span>/</span>
-            <span className="text-[#f7941d]">Corporate Training</span>
+            <span className="text-[#f7941d]">Training</span>
           </div>
 
           {/* Headline block */}
           <motion.div variants={stagger} initial="hidden" animate="show" className="mt-14 lg:mt-0 lg:my-auto">
             <motion.span
               variants={fadeUp}
-              className="font-mono text-[11px] tracking-[0.14em] uppercase text-[#f7941d] mb-7 block"
+              className="font-mono text-[11px] tracking-[0.1em] uppercase text-[#f7941d] mb-7 block"
             >
-              Capacity Building · Strategic Consulting
+              Capacity Building · Consulting
             </motion.span>
 
             <motion.h1
               variants={fadeUp}
               className="font-display font-semibold tracking-[-0.035em] leading-[1.02] text-white"
-              style={{ fontSize: 'clamp(48px, 5.8vw, 86px)' }}
+              style={{ fontSize: 'clamp(38px, 5.8vw, 86px)' }}
             >
               Building the<br />
               <em className="not-italic text-[#f7941d]">capability</em><br />
@@ -101,25 +100,25 @@ function BexonHero() {
             variants={stagger}
             initial="hidden"
             animate="show"
-            className="mt-14 pt-8 border-t border-white/10 grid grid-cols-3"
+            className="mt-10 pt-6 border-t border-white/10 grid grid-cols-3"
           >
             {[
-              ['12+',  'Enterprise engagements'],
-              ['500+', 'Professionals trained'],
-              ['98%',  'Satisfaction rate'],
+              ['12+',  'Engagements'],
+              ['500+', 'Trained'],
+              ['98%',  'Satisfaction'],
             ].map(([k, v], i) => (
               <motion.div
                 key={v}
                 variants={fadeUp}
-                className={i > 0 ? 'pl-8 border-l border-white/10' : ''}
+                className={i > 0 ? 'pl-4 lg:pl-8 border-l border-white/10' : ''}
               >
                 <div
                   className="font-display font-semibold tracking-[-0.02em] text-white leading-none"
-                  style={{ fontSize: 'clamp(32px, 3vw, 44px)' }}
+                  style={{ fontSize: 'clamp(26px, 3vw, 44px)' }}
                 >
                   {k}
                 </div>
-                <div className="mt-2 text-[12px] text-white/35 tracking-wide">{v}</div>
+                <div className="mt-1.5 text-[11px] text-white/35 tracking-wide">{v}</div>
               </motion.div>
             ))}
           </motion.div>
@@ -232,7 +231,7 @@ function BexonLogos() {
 /* ── Section 3: Floating Stats Cards (Bexon Image 5 layout) ── */
 function BexonStats() {
   return (
-    <section className="bg-[#f9f9f9] py-24 relative overflow-hidden">
+    <section className="bg-[#f9f9f9] py-16 lg:py-24 relative overflow-hidden">
       <div className="max-w-7xl mx-auto px-6 lg:px-10">
         
         <div className="grid lg:grid-cols-[1fr_1.5fr] gap-12 items-center mb-16">
@@ -251,44 +250,44 @@ function BexonStats() {
           className="grid md:grid-cols-3 gap-6"
         >
           {/* Card 1 */}
-          <motion.div variants={fadeUp} className="bg-white rounded-3xl p-10 shadow-sm border border-gray-100 flex flex-col justify-between aspect-square">
+          <motion.div variants={fadeUp} className="bg-white rounded-3xl p-6 lg:p-10 shadow-sm border border-gray-100 flex flex-col justify-between min-h-[220px] lg:aspect-square">
             <div className="flex justify-between items-start">
-              <div className="w-16 h-16 rounded-full bg-orange-50 flex items-center justify-center text-[#f7941d]">
-                <svg className="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+              <div className="w-12 h-12 lg:w-16 lg:h-16 rounded-full bg-orange-50 flex items-center justify-center text-[#f7941d]">
+                <svg className="w-6 h-6 lg:w-8 lg:h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
               </div>
               <span className="text-gray-400 font-bold text-xl">01.</span>
             </div>
             <div>
               <div className="text-gray-500 mb-2">Projects Completed.</div>
-              <div className="text-6xl font-bold text-[#050505]">93%</div>
+              <div className="text-5xl lg:text-6xl font-bold text-[#050505]">93%</div>
             </div>
           </motion.div>
 
           {/* Card 2 (Image Card) */}
-          <motion.div variants={fadeUp} className="bg-[#f7941d] rounded-3xl p-10 shadow-lg relative overflow-hidden text-white flex flex-col justify-end aspect-square">
+          <motion.div variants={fadeUp} className="bg-[#f7941d] rounded-3xl p-6 lg:p-10 shadow-lg relative overflow-hidden text-white flex flex-col justify-end min-h-[220px] lg:aspect-square">
             <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=900&q=80')] bg-cover bg-center mix-blend-overlay opacity-20" />
             <div className="relative z-10">
-              <div className="flex -space-x-4 mb-6">
+              <div className="flex -space-x-3 mb-4">
                 {[1,2,3].map(i => (
-                  <img key={i} className="w-14 h-14 rounded-full border-4 border-[#f7941d] object-cover" src={IMG.testiProfile} alt="User" />
+                  <img key={i} className="w-10 h-10 lg:w-14 lg:h-14 rounded-full border-4 border-[#f7941d] object-cover" src={IMG.testiProfile} alt="User" />
                 ))}
-                <div className="w-14 h-14 rounded-full border-4 border-[#f7941d] bg-black flex items-center justify-center font-bold">+</div>
+                <div className="w-10 h-10 lg:w-14 lg:h-14 rounded-full border-4 border-[#f7941d] bg-black flex items-center justify-center font-bold text-sm">+</div>
               </div>
-              <h3 className="text-2xl font-bold leading-tight">We have 100+ happy customers.</h3>
+              <h3 className="text-xl lg:text-2xl font-bold leading-tight">We have 100+ happy customers.</h3>
             </div>
           </motion.div>
 
           {/* Card 3 */}
-          <motion.div variants={fadeUp} className="bg-white rounded-3xl p-10 shadow-sm border border-gray-100 flex flex-col justify-between aspect-square">
+          <motion.div variants={fadeUp} className="bg-white rounded-3xl p-6 lg:p-10 shadow-sm border border-gray-100 flex flex-col justify-between min-h-[220px] lg:aspect-square">
             <div className="flex justify-between items-start">
-              <div className="w-16 h-16 rounded-full bg-orange-50 flex items-center justify-center text-[#f7941d]">
-                <svg className="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" /></svg>
+              <div className="w-12 h-12 lg:w-16 lg:h-16 rounded-full bg-orange-50 flex items-center justify-center text-[#f7941d]">
+                <svg className="w-6 h-6 lg:w-8 lg:h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" /></svg>
               </div>
               <span className="text-gray-400 font-bold text-xl">02.</span>
             </div>
             <div>
               <div className="text-gray-500 mb-2">Reach Worldwide</div>
-              <div className="text-6xl font-bold text-[#050505]">20M</div>
+              <div className="text-5xl lg:text-6xl font-bold text-[#050505]">20M</div>
             </div>
           </motion.div>
         </motion.div>
@@ -300,26 +299,26 @@ function BexonStats() {
 /* ── Section 4: Solutions (Dark theme with grid cards from Image 4) ── */
 function BexonServices() {
   return (
-    <section className="bg-[#050505] text-white py-24 relative overflow-hidden">
+    <section className="bg-[#050505] text-white py-16 lg:py-24 relative overflow-hidden">
       <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-[#f7941d]/5 blur-[150px] rounded-full" />
       
-      <div className="max-w-7xl mx-auto px-6 lg:px-10 relative z-10 grid lg:grid-cols-[1fr_2fr] gap-16">
-        
+      <div className="max-w-7xl mx-auto px-6 lg:px-10 relative z-10 grid lg:grid-cols-[1fr_2fr] gap-10 lg:gap-16">
+
         {/* Left Sticky Title */}
         <motion.div variants={slideLeft} initial="hidden" whileInView="show" viewport={viewport} className="lg:sticky top-32 h-fit">
           <div className="inline-block bg-white/10 text-[#f7941d] font-mono text-xs font-bold tracking-widest px-3 py-1 mb-6 rounded uppercase">
             Our Solutions
           </div>
-          <h2 className="text-4xl lg:text-5xl font-bold tracking-tight leading-tight mb-8">
+          <h2 className="text-3xl lg:text-5xl font-bold tracking-tight leading-tight mb-8">
             Tailored Business Solutions for our Corporates.
           </h2>
-          <Btn className="bg-[#f7941d] hover:bg-[#e0861a] text-black font-semibold px-6 py-3 rounded-full flex items-center w-fit gap-2">
-            More Services <Arrow className="w-4 h-4 rotate-45" />
-          </Btn>
+          <Link to="/expertise">
+            <Btn variant="primary" size="md" arrow>More Services</Btn>
+          </Link>
         </motion.div>
 
         {/* Right Cards Grid */}
-        <motion.div variants={stagger} initial="hidden" whileInView="show" viewport={viewport} className="grid md:grid-cols-2 gap-6">
+        <motion.div variants={stagger} initial="hidden" whileInView="show" viewport={viewport} className="grid sm:grid-cols-2 gap-5">
           {EXPERTISE.slice(0,4).map((exp, i) => (
             <motion.div 
               key={i} variants={fadeUp}
@@ -351,7 +350,7 @@ function BexonServices() {
 /* ── Section 5: Proud Projects (Light gallery from Image 3) ── */
 function BexonProjects() {
   return (
-    <section className="bg-white py-24 text-center">
+    <section className="bg-white py-16 lg:py-24 text-center overflow-hidden">
       <div className="max-w-7xl mx-auto px-6 lg:px-10">
         <div className="inline-block text-[#f7941d] font-mono text-xs font-bold tracking-widest px-3 py-1 mb-4 uppercase border border-gray-200 rounded">
           Proud Projects
@@ -360,14 +359,14 @@ function BexonProjects() {
           Breaking Boundaries, Building <span className="text-[#f7941d]">Dreams.</span>
         </h2>
 
-        <div className="grid md:grid-cols-3 gap-6">
-          <motion.div whileHover={{ y: -10 }} className="h-[400px] rounded-3xl overflow-hidden relative shadow-lg">
+        <div className="grid md:grid-cols-3 gap-6 items-start">
+          <motion.div whileHover={{ y: -6 }} className="h-[260px] md:h-[400px] rounded-3xl overflow-hidden shadow-lg">
             <img src={IMG.case1} alt="Project 1" className="w-full h-full object-cover" />
           </motion.div>
-          <motion.div whileHover={{ y: -10 }} className="h-[450px] -mt-6 rounded-3xl overflow-hidden relative shadow-lg">
+          <motion.div whileHover={{ y: -6 }} className="h-[260px] md:h-[450px] md:-mt-6 rounded-3xl overflow-hidden shadow-lg">
             <img src={IMG.case2} alt="Project 2" className="w-full h-full object-cover" />
           </motion.div>
-          <motion.div whileHover={{ y: -10 }} className="h-[400px] rounded-3xl overflow-hidden relative shadow-lg">
+          <motion.div whileHover={{ y: -6 }} className="h-[260px] md:h-[400px] rounded-3xl overflow-hidden shadow-lg">
             <img src={IMG.testiGroup} alt="Project 3" className="w-full h-full object-cover" />
           </motion.div>
         </div>
@@ -379,35 +378,34 @@ function BexonProjects() {
 /* ── Section 6: Testimonials (Split quote card from Image 2) ── */
 function BexonTestimonial() {
   return (
-    <section className="bg-[#f0f2f5] py-24">
-      <div className="max-w-6xl mx-auto px-6 lg:px-10 grid md:grid-cols-2 gap-10">
-        
+    <section className="bg-[#f0f2f5] py-16 lg:py-24 overflow-hidden">
+      <div className="max-w-6xl mx-auto px-6 lg:px-10 grid md:grid-cols-2 gap-8">
+
         {/* Left Image Card */}
-        <motion.div variants={slideLeft} initial="hidden" whileInView="show" viewport={viewport} className="relative rounded-3xl overflow-hidden h-[500px] shadow-xl">
+        <motion.div variants={slideLeft} initial="hidden" whileInView="show" viewport={viewport} className="relative rounded-3xl overflow-hidden h-[360px] md:h-[500px] shadow-xl">
           <img src={IMG.testiGroup} alt="Customers" className="w-full h-full object-cover" />
           <div className="absolute inset-0 bg-black/40" />
-          <div className="absolute top-10 left-10">
-            <h3 className="text-4xl font-bold text-white leading-tight">Hear from Our<br/><span className="text-[#f7941d]">Customer</span></h3>
+          <div className="absolute top-8 left-8">
+            <h3 className="text-3xl lg:text-4xl font-bold text-white leading-tight">Hear from Our<br/><span className="text-[#f7941d]">Customers</span></h3>
           </div>
           {/* Orange Stats overlay */}
-          <div className="absolute bottom-0 right-0 bg-[#f7941d] p-8 rounded-tl-3xl text-white">
-            <div className="text-6xl font-bold mb-2">4.9</div>
-            <div className="flex gap-1 text-white mb-2 text-xl">★★★★★</div>
-            <div className="text-sm font-medium">(80+ Clients Reviews)</div>
+          <div className="absolute bottom-0 right-0 bg-[#f7941d] p-5 lg:p-8 rounded-tl-3xl text-white">
+            <div className="text-5xl lg:text-6xl font-bold mb-1">4.9</div>
+            <div className="flex gap-1 text-white mb-1 text-lg">★★★★★</div>
+            <div className="text-xs font-medium">(80+ Client Reviews)</div>
           </div>
         </motion.div>
 
         {/* Right Quote Card */}
-        <motion.div variants={slideRight} initial="hidden" whileInView="show" viewport={viewport} className="bg-white rounded-3xl p-12 shadow-xl flex flex-col justify-center relative">
-          <div className="text-[120px] leading-none text-[#f7941d] font-serif absolute top-4 left-8 opacity-20">"</div>
-          <p className="text-gray-600 text-xl leading-relaxed relative z-10 mb-10 mt-8">
+        <motion.div variants={slideRight} initial="hidden" whileInView="show" viewport={viewport} className="bg-white rounded-3xl p-7 lg:p-12 shadow-xl flex flex-col justify-center relative">
+          <div className="text-[96px] lg:text-[120px] leading-none text-[#f7941d] font-serif absolute top-2 left-6 opacity-20">"</div>
+          <p className="text-gray-600 text-base lg:text-xl leading-relaxed relative z-10 mb-8 mt-6">
             "The results we've seen after partnering with Digital World are beyond our expectations. They not only understood our vision but also brought new ideas to the table that have taken our business to the next level."
           </p>
-          
-          <div className="flex items-center gap-4 pt-8 border-t border-gray-100">
-            <img src={IMG.testiProfile} alt="Client" className="w-16 h-16 rounded-full object-cover shadow-md" />
+          <div className="flex items-center gap-4 pt-6 border-t border-gray-100">
+            <img src={IMG.testiProfile} alt="Client" className="w-14 h-14 rounded-full object-cover shadow-md flex-shrink-0" />
             <div>
-              <div className="font-bold text-xl text-[#050505]">Ralph Edwards</div>
+              <div className="font-bold text-lg text-[#050505]">Ralph Edwards</div>
               <div className="text-gray-500 text-sm">Co. Founder</div>
             </div>
           </div>

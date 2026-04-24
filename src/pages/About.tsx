@@ -13,7 +13,7 @@ const IMG = {
 
 export default function About() {
   return (
-    <div className="bg-paper text-ink">
+    <div className="bg-paper text-ink overflow-x-hidden">
       <Nav variant="dark" />
       <AboutHero />
       <AboutLede />
